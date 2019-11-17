@@ -26,14 +26,14 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>fr.liglab.erods.jmeter.mqtt</groupId>
-	<artifactId>mqtt-jmeter</artifactId>
+	<groupId>vn.edu.fimo.jmeter.mqtt</groupId>
+	<artifactId>mqttbench</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Apache JMeter :: MQTT Injector</name>
 	<description>MQTT Injector for Apache JMeter</description>
 
 	<properties>
-		<jmeter-version>2.10</jmeter-version>
+		<jmeter-version>2.11</jmeter-version>
 	</properties>
 
 	<dependencies>
@@ -62,6 +62,26 @@
 		<finalName>${project.artifactId}</finalName>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
+			<plugin>
+		            <artifactId>maven-assembly-plugin</artifactId>
+
+		            <configuration>
+                		<descriptorRefs>
+                		    <descriptorRef>jar-with-dependencies</descriptorRef>
+                		</descriptorRefs>
+            		    </configuration>
+
+		            <executions>
+                		<execution>
+                		    <id>make-assembly</id>
+                		    <phase>package</phase>
+                		    <goals>
+                		        <goal>single</goal>
+                		    </goals>
+                		</execution>
+            		    </executions>
+		        </plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
